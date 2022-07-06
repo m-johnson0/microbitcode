@@ -1,0 +1,49 @@
+# Add your Python code here. E.g.
+from microbit import *
+
+def stop():
+    pin8.write_digital(0)
+    pin16.write_digital(0)
+    
+
+def move(joint, direction, angle):
+    time = angle * 50
+    if joint == 'shoulder':
+        if direction == 'up':
+            pin8.write_digital(0)
+            pin16.write_digital(1)
+            sleep(time)
+            pin8.write_digital(0)
+            pin16.write_digital(0)        
+            
+        elif direction == 'down':
+            pin8.write_digital(1)
+            pin16.write_digital(0)
+            sleep(time)
+            pin8.write_digital(0)
+            pin16.write_digital(0)
+            
+        else:
+            pass
+        
+    if joint == 'wrist':
+        if direction == 'up':
+            pin0.write_digital(0)
+            pin1.write_digital(1)
+            sleep(time)
+            pin0.write_digital(0)
+            pin1.write_digital(0)       
+            
+        elif direction == 'down':
+            pin0.write_digital(1)
+            pin1.write_digital(0)
+            sleep(time)
+            pin0.write_digital(0)
+            pin1.write_digital(0)
+            
+        else:
+            pass
+        
+        
+#move('shoulder', 'up', 90)
+move('wrist', 'down', 5)
